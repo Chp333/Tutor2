@@ -30,33 +30,34 @@ class App extends Component {
   }
 
   changeLoginState = () => {
-    
+
     this.setState({
       login: true
     });
   };
 
   render() {
-    
-
-
-
     return (
 
       <Router>
         <div>
           <Nav login={this.state.login} />
-          
+
 
           <Switch>
             <Route exact path="/guest" component={AddGuestForm} />
             <Route exact path="/mgmt" component={AddUserForm} />
             {/* <Route exact path="/books/:id" component={Detail} />
               <Route component={NoMatch} /> */}
-              
-              <Route exact path="/login" component={HomeLogin} changeLoginState={this.changeLoginState}/>
-              <Route exact path="/owner" component={OwnerPage} />
-          
+
+            {
+              //i got login to work here, we can talk about it next time
+            }
+            <Route exact path="/login" render={props => (
+              <HomeLogin {...props} changeLoginState={this.changeLoginState} />
+            )} />
+            <Route exact path="/owner" component={OwnerPage} />
+
           </Switch>
 
         </div>

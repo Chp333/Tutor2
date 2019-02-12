@@ -13,7 +13,6 @@ class HomeLogin extends Component {
       username: "",
       password: "",
     }
-    console.log(props)
   }
 
   handleInputChange = event => {
@@ -31,15 +30,16 @@ class HomeLogin extends Component {
         password: this.state.password
 
       })
+        .then(res => this.props.changeLoginState())
         .then(res => console.log("submitted"))
         .catch(err => console.log(err));
     }
-    console.log(this.state);
   };
 
 
 
   render() {
+    console.log('asbasdfasdfsd', this.props)
     return (
 
       <div>
